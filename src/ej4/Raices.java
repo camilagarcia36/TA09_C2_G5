@@ -32,5 +32,4 @@ public class Raices {
     public void obtenerRaiz() { // se asume que discriminante == 0
         System.out.println("Raíz única: "+-b/(2*a));
     }
-
 }
