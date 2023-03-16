@@ -2,7 +2,6 @@ package ej4;
 
 import java.util.Scanner;
 
-import ej4.Raices;
 
 
 public class RaicesApp {
@@ -10,7 +9,7 @@ public class RaicesApp {
     	
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("Calculadora de raíces de ecuaciones de segondu grado");
+        System.out.println("Calculadora de raíces de ecuaciones de segundo grado");
         System.out.println("Introduce los coeficientes (ecuación en la forma a*x^2 + b*x + c = 0)");
         
         System.out.print("a = ");
