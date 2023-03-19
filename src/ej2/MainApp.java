@@ -2,60 +2,67 @@ package ej2;
 
 public class MainApp {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		    public static void main(String[] args) {
+		        // Crear array de Series
+		        Serie[] series = new Serie[5];
+		        series[0] = new Serie("Castle", 8, "Accion","Andrew W. Marlowe");
+		        series[1] = new Serie("Friends", 10, "Comedia","James Burrows" );
+		        series[2] = new Serie("Game of Thrones", 8, "Fantasía", "David Benioff");
+		        series[3] = new Serie("Stranger Things", 3, "Ciencia ficción", "Los hermanos Duffer");
+		        series[4] = new Serie("The Crown",10,"Historia", "Peter Morgan");
 
-		// Creamos dos arrays de diferente tipo de objeto
+		        Videojuego[] videojuegos = new Videojuego[5];
+		        videojuegos[0] = new Videojuego("Call of Duty", 15, "Acción", "Activision");
+		        videojuegos[1] = new Videojuego("FIFA 22", 10, "Deportes", "EA Sports");
+		        videojuegos[2] = new Videojuego("Minecraft", 30, "Aventura", "Mojang");
+		        videojuegos[3] = new Videojuego("Assassin's Creed", 20, "Acción-Aventura", "Ubisoft");
+		        videojuegos[4] = new Videojuego("The Legend of Zelda", 25, "Aventura", "Nintendo");
 
-		Serie series[] = new Serie[5];
-		Videojuego videojuego[] = new Videojuego[5];
 
-		series[0] = new Serie("Breaking Bad", 5, "Drama", "Vince Gilligan");
-		series[1] = new Serie("Game of Thrones", 8, "Fantasía", "David Benioff y D. B. Weiss");
-		series[2] = new Serie("The Office", 100, "Comedia", "Greg Daniels");
-		series[3] = new Serie("Stranger Things", 19, "Ciencia ficción", "The Duffer Brothers");
-		series[4] = new Serie("Friends", 1, "Comedia", "David Crane");
+		        // Entregar algunas series
+		        series[1].entregar();
+		        series[3].entregar();
+		        videojuegos[4].entregar();
+		        videojuegos[2].entregar(); 
+		      
+		        // Cuenta cuantas series y videojuegos hay entregados y devuelve el numero de entregados. 
+		        int entregados = 0;
+				for (int i = 0; i < series.length; i++) {
+					if (series[i].isEntregado()) {
+						entregados += 1;
+						series[i].devolver();
 
-		videojuego[0] = new Videojuego("The Legend of Zelda: Breath of the Wild", 400, "Aventura", "Nintendo");
-		videojuego[1] = new Videojuego("Grand Theft Auto V", 700, "Acción", "Rockstar Games");
-		videojuego[2] = new Videojuego("Minecraft", 100, "Sandbox", "Mojang Studios");
-		videojuego[3] = new Videojuego("The Witcher 3: Wild Hunt", 150, "RPG", "CD Projekt RED");
-		videojuego[4] = new Videojuego("Fortnite", 2, "Battle Royale", "Epic Games");
+					}
+					if (videojuegos[i].isEntregado()) {
+						entregados += 1;
+						videojuegos[i].devolver();
+					}
+				}
+				System.out.println("El numero de articulos entregados es: " + entregados);
+				
+				
+		        // Encontrar la serie con más temporadas y el videojuego con más horas estimadas
+		        Serie serieMasTemporadas = series[0];
+		        Videojuego videojuegoMasHoras = videojuegos[0];
 
-		series[3].entregar();
-		series[1].entregar();
-		videojuego[0].entregar();
-		videojuego[1].entregar();
+		        for (int i = 1; i < series.length; i++) {
+		            if (series[i].getNumTemporadas() > serieMasTemporadas.getNumTemporadas()) {
+		                serieMasTemporadas = series[i];
+		            }
+		        }
 
-		int entregados = 0;
-		for (int i = 0; i < series.length; i++) {
-			if (series[i].isEntregado()) {
-				entregados += 1;
-				series[i].devolver();
+		        for (int i = 1; i < videojuegos.length; i++) {
+		            if (videojuegos[i].getHorasEstimadas() > videojuegoMasHoras.getHorasEstimadas()) {
+		                videojuegoMasHoras = videojuegos[i];
+		            }
+		        }
 
-			}
-			if (videojuego[i].isEntregado()) {
-				entregados += 1;
-				videojuego[i].devolver();
-			}
+		        // Mostrar la serie con más temporadas y el videojuego con más horas estimadas
+		        System.out.println("\nLa serie con más temporadas es: " + serieMasTemporadas.toString());
+		        System.out.println("\nEl videojuego con más horas estimadas es: " + videojuegoMasHoras.toString());
+		        
+		        //El estado de entrega se convierte a false porque previamente hemos devuelto la serie o videojuego al contarlos. 
+		    }
+		    
+		    
 		}
-
-		System.out.println("El numero de articulos entregados es: " + entregados);
-
-		Serie serieMayor = series[0];
-		Videojuego videojuegoMayor = videojuego[0];
-
-		for (int i = 1; i < series.length; i++) {
-			if (series[i].compareTo(serieMayor) == Serie.MAYOR) {
-				serieMayor = series[i];
-			}
-
-			if (videojuego[i].compareTo(videojuegoMayor) == Videojuego.MAYOR) {
-				videojuegoMayor = videojuego[i];
-			}
-		}
-		
-		System.out.println(videojuegoMayor);
-		System.out.println(serieMayor);
-	}
-}
