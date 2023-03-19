@@ -1,6 +1,10 @@
 package ej5;
 
+import java.util.Random;
+
 public class Profesor {
+    Random rnd = new Random();
+
     private String nombre = "";
     private String sexo = "";
     private int edad = 0;
@@ -26,4 +30,24 @@ public void setSexo(String sexo) {
     this.sexo = sexo;
 }
 
+public int getEdad() {
+    return edad;
+}
+public String getMateria() {
+    return materia;
+}
+public String getNombre() {
+    return nombre;
+}
+public String getSexo() {
+    return sexo;
+}
+public boolean hacerNovillosProf(){
+   boolean disponibilidad = true;
+    if ( rnd.nextInt() *5 >= 4 ){
+    return disponibilidad = false;
+    }else 
+    return disponibilidad;
+ }
+ 
 }

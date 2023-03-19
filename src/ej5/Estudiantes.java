@@ -1,7 +1,10 @@
 
 package ej5;
-public class Estudiantes {
 
+import java.util.Random;
+
+public class Estudiantes {
+Random rnd = new Random();
     private String nombre = "";
     private String sexo = "";
     private int edad = 0;
@@ -25,12 +28,25 @@ public class Estudiantes {
  public void setSexo(String sexo) {
      this.sexo = sexo;
  }
- 
- public boolean hacerNovillos(){
-
-
-return false;
-
+ public int getEdad() {
+     return edad;
  }
-
+ public String getNombre() {
+     return nombre;
+ }
+ public double getNota() {
+     return nota;
+ }
+ public String getSexo() {
+     return sexo;
+ }
+ 
+ public boolean hacerNovillosEst(){
+   
+    if ( rnd.nextInt() * 2 == 1){
+    return true;
+    }else 
+    return false;
+ }
+ 
 }
