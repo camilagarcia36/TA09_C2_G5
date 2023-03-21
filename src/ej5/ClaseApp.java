@@ -1,15 +1,12 @@
 package ej5;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Hashtable;
 public class ClaseApp {
     public static void main(String[] args) {
-        Hashtable<String,Integer> arrEst = new Hashtable<String,Integer>();
-        Enumeration enumeration = arrEst.elements();
-        Hashtable<String,Integer> arrProf = new Hashtable<String,Integer>();
-        Enumeration enumeration2 = arrProf.elements();
-        Hashtable<String,Integer> arrAul = new Hashtable<String,Integer>();
-        Enumeration enumeration3 = arrAul.elements();
+      /*   HashMap<String,Integer> arrEst = new HashMap<String,Integer>();
+        //Enumeration enumeration = arrEst.elements();
+        HashMap<String,Integer> arrProf = new HashMap<String,Integer>();
+       // Enumeration enumeration2 = arrProf.elements();
+        HashMap<String,Integer> arrAul = new HashMap<String,Integer>();
+       // Enumeration enumeration3 = arrAul.elements();
         //Creación de tres aulas
         Aula aula = new Aula(1671, 28, "matematicas");
         Aula aula2 = new Aula(3673, 26, "filosofía");
@@ -20,9 +17,9 @@ public class ClaseApp {
         Profesor prof3 = new Profesor("Carmen", "M", 28, "filosofia");
         //Creación de 12 estudiantes        
         Estudiantes estu1 = new Estudiantes("Jaimito", "H", 17,5.5);            
-        Estudiantes estu2 = new Estudiantes("Pedro", "H", 17,6.4);
+        Estudiantes estu2 = new Estudiantes("Pedro", "H", 18,6.4);
         Estudiantes estu3 = new Estudiantes("Fernando", "M", 17,7.5);
-        Estudiantes estu4 = new Estudiantes("Maximiliano", "H", 17,4.6);
+        Estudiantes estu4 = new Estudiantes("Maximiliano", "H", 18,4.6);
         Estudiantes estu5 = new Estudiantes("Juan Carlos", "H", 17,9.5);
         Estudiantes estu6 = new Estudiantes("Marcos", "H", 17,8.3);
        //Asignación de los datos a sus correspondiente array
@@ -35,12 +32,13 @@ public class ClaseApp {
         arrProf.add(prof2);
         arrProf.add(prof3);
 
-       arrEst.add(estu1);
-       arrEst.add(estu2);
-       arrEst.add(estu3);
-       arrEst.add(estu4);
-       arrEst.add(estu5);
-       arrEst.add(estu6);
-    }
+        arrEst.add(estu1);
+        arrEst.add(estu2);
+        arrEst.add(estu3);
+        arrEst.add(estu4);
+        arrEst.add(estu5);
+        arrEst.add(estu6);
+       
+    }*/
 
-}
+}}
