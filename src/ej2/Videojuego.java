@@ -1,114 +1,107 @@
 package ej2;
 
-public class Videojuego implements Entregable{
+public class Videojuego implements Entregable {
 
-	private final static int HORAS_ESTIMADAS_DEF=100;
-	
-    public final static int MAYOR=1;
-    
-    public final static int MENOR=-1;
-    
-    
-    public final static int IGUAL=0;
-    
-    private String titulo; 
-    private int horasEstimadas; 
-    private boolean entregado; 
-    private String genero; 
-    private String compania;
-    
-    public Videojuego()
-    { }
-    
-    public Videojuego(String titulo, String compañia) {
-    	this.titulo= titulo; 
-    	this.compania = compania; 
-    	int HORAS_ESTIMADAS_DEF; 
-    	
-    }
-    
-    public Videojuego(String titulo, int horasEstimadas, String genero, String compania) {
-    	this.titulo = titulo; 
-    	this.horasEstimadas = horasEstimadas; 
-    	this.genero = genero;
-    	this.compania = compania;
-    	this.entregado =false; 
-    }
-    
+	private String titulo;
+	private int horasEstimadas;
+	private boolean entregado;
+	private String genero;
+	private String compañia;
+
+	// Constructor por defecto
+	public Videojuego() {
+		this.titulo = "";
+		this.horasEstimadas = 10;
+		this.entregado = false;
+		this.genero = "";
+		this.compañia = "";
+	}
+
+	// Constructor con titulo y horas estimadas
+	public Videojuego(String titulo, int horasEstimadas) {
+		this.titulo = titulo;
+		this.horasEstimadas = horasEstimadas;
+		this.entregado = false;
+		this.genero = "";
+		this.compañia = "";
+	}
+
+	// Constructor con todos los atributos excepto entregado
+	public Videojuego(String titulo, int horasEstimadas, String genero, String compañia) {
+		this.titulo = titulo;
+		this.horasEstimadas = horasEstimadas;
+		this.entregado = false;
+		this.genero = genero;
+		this.compañia = compañia;
+	}
+
+	// Métodos get de todos los atributos, excepto entregado
 	public String getTitulo() {
 		return titulo;
 	}
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+
 	public int getHorasEstimadas() {
 		return horasEstimadas;
 	}
-	public void setHorasEstimadas(int horasEstimadas) {
-		this.horasEstimadas = horasEstimadas;
-	}
-	
-	public void setEntregado(boolean entregado) {
-		this.entregado = entregado;
-	}
+
 	public String getGenero() {
 		return genero;
 	}
+
+	public String getCompañia() {
+		return compañia;
+	}
+
+	// Métodos set de todos los atributos, excepto entregado
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public void setHorasEstimadas(int horasEstimadas) {
+		this.horasEstimadas = horasEstimadas;
+	}
+
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-	public String getCompania() {
-		return compania;
-	}
-	public void setCompania(String compania) {
-		this.compania = compania;
-	} 
-    
-    public void entregar() {
-    	entregado =true;
-    }
-    
-    
-    public void devolver() {
-    	entregado = false; 
-    }
-    
-    public boolean isEntregado() {
-    	if(entregado) {
-    		return true; 
-    	} 
-    	return false; 
-    }
-    @Override
-    public int compareTo(Object a) {
-		int estado = MENOR;
 
-		Videojuego ref = (Videojuego) a;
-		if (horasEstimadas > ref.getHorasEstimadas()) {
-			estado = MAYOR;
-		} else if (horasEstimadas == ref.getHorasEstimadas()) {
-			estado = IGUAL;
+	public void setCompañia(String compañia) {
+		this.compañia = compañia;
+	}
+
+	// Sobrescribe el método toString
+	@Override
+	public String toString() {
+		return "\n" + titulo + " con " + horasEstimadas + " horas estimadas de juego, " + " de genero '" + genero
+				+ " y de la compañia " + compañia + ", su estado de entrega es " + entregado;
+	}
+
+	// Implementación de los métodos de la interfaz Entregable
+	@Override
+	public void entregar() {
+		entregado = true;
+	}
+
+	@Override
+	public void devolver() {
+		entregado = false;
+	}
+
+	@Override
+	public boolean isEntregado() {
+		return entregado;
+	}
+
+	// Implementación del método compareTo para comparar por horas estimadas
+	@Override
+	public int compareTo(Object o) {
+		Videojuego otroVideojuego = (Videojuego) o;
+		if (horasEstimadas > otroVideojuego.horasEstimadas) {
+			return 1;
+		} else if (horasEstimadas < otroVideojuego.horasEstimadas) {
+			return -1;
+		} else {
+			return 0;
 		}
-
-		return estado;
-		
 	}
-    
-    
-    public String toString() {
-    	return "Informacion del videojuego con más horas estimadas \n"+ "El titulo es " 
-    + titulo + ", las horas estimadas son " + horasEstimadas 
-    + ". el genero es " + genero + " y la compañia es " + compania;
-    	
-    }
-    
-   public boolean equals(Videojuego a) {
-	   if(titulo.equalsIgnoreCase(a.getTitulo()) && compania.equalsIgnoreCase(a.getCompania())) {
-		   return true;  
-	   }
-	   return false; 
-   }
-
-
-    
 }
