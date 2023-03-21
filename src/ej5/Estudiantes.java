@@ -1,4 +1,3 @@
-
 package ej5;
 import java.util.Random;
 
@@ -8,10 +7,12 @@ Random rnd = new Random();
     private double nota = 0.0;
 
     public Estudiantes( String nombre,String sexo,int edad,double nota){
+
   super();
-        this.nota = nota;
+    nota = ClaseApp.generarNumeroAleatorio(0, 10);
+
+    super.setEdad(ClaseApp.generarNumeroAleatorio(12, 15));
     }
- 
  public void setNota(double nota) {
      this.nota = nota;
  }
@@ -19,13 +20,23 @@ Random rnd = new Random();
      return nota;
  }
 
- 
- public boolean hacerNovillosEst(){
-   
-    if ( rnd.nextInt() * 2 == 1){
-    return true;
-    }else 
-    return false;
- }
- 
+
+
+@Override
+public void disponibilidad() {
+    int prob=ClaseApp.generarNumeroAleatorio(0, 100);
+
+    if (prob<50) {
+        super.setAsistencia(true);
+    }else{
+
+        super.setAsistencia(false);
+    }
+}
+
+public String toString(){
+
+    return "Nombre"+super.getNombre()+" sexo "+super.getSexo()+"nota"+getNota();
+}
+
 }
